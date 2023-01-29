@@ -1,35 +1,48 @@
-<div class="container">
-  <h1> WAREHOUSE STOCKLIST</h1>
-
-  <table>
-    <thead>
-      <th>ID</th>
-      <th>NAME</th>
-      <th>PRICE</th>
-      <th>MFD</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let stock of stockDetails">
-        <td>{{stock.id}}</td>
-        <td>{{stock.name}}</td>
-        <td>{{stock.price}}</td>
-        <td>{{stock.mfd}}</td>
-        <td><button class="btn btn-sm btn-secondary">Edit</button></td>
-        <td><button class="btn btn-sm btn-danger">Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div>
-  <form>
-    <label>NAME   </label>
-    <input  [(ngModel)]="stockDetail.name"><br><br>
-    <label>PRICE  </label>
-    <input [(ngModel)]="stockDetail.mfd"><br><br>
-    <label>MFD  </label>
-    <input type="date" [(ngModel)]="stockDetail.date"><br><br>
-    <button  class="btn btn-sm btn-success">save</button>
-    <button  class="btn btn-sm btn-warning">cancel</button>
-  </form>
+<h1> WAREHOUSE STOCKLIST</h1>
+<div style="display: flex;flex-direction: row;" class="container-fluid">
+  <div class="col-lg-8 ">
+    <table class="table table-sm" style="border: solid 1px;border-color: seagreen;">
+      <thead>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PRICE</th>
+        <th>MFD</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stock of stocks">
+          <td>{{stock.id}}</td>
+          <td>{{stock.name}}</td>
+          <td>{{stock.price}}</td>
+          <td>{{stock.mfd}}</td>
+          <td><button class="btn btn-sm btn-secondary" (click)="editData(stock)">Edit</button></td>
+          <td><button class="btn btn-sm btn-danger" (click)="removeData(stock)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="display: flex;flex-direction: column;border: solid 1px;border-color: seagreen;padding: 8px;"
+    class="col-lg-3 mx-3">
+    <form standalone style="margin:auto">
+      <label>ID</label>
+      <br>
+      <input type="text" disabled />
+      <br><br>
+      <label>Name</label>
+      <br>
+      <input type="text" [(ngModel)]="detail.name" name="Name" autocomplete="off">
+      <br><br>
+      <label>Price</label>
+      <br>
+      <input type="text" [(ngModel)]="detail.price" name="Price">
+      <br><br>
+      <label>MFD</label>
+      <br>
+      <input type="text" [(ngModel)]="detail.mfd" name="MFD">
+      <br><br>
+      <div class="mx-4">
+        <button (click)="saveOrEditData()" class="btn btn-sm btn-success mx-1">Save</button>
+        <button (click)="cancel()" class="but btn-sm btn-warning mx-1 text-white">Cancel</button>
+      </div>
+    </form>
+  </div>
 </div>

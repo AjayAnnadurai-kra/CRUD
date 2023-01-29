@@ -16,7 +16,7 @@ import { StocklistComponent } from './stocklist/stocklist.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
