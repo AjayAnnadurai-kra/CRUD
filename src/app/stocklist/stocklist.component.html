@@ -1,0 +1,35 @@
+<div class="container">
+  <h1> WAREHOUSE STOCKLIST</h1>
+
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>PRICE</th>
+      <th>MFD</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of stockDetails">
+        <td>{{stock.id}}</td>
+        <td>{{stock.name}}</td>
+        <td>{{stock.price}}</td>
+        <td>{{stock.mfd}}</td>
+        <td><button class="btn btn-sm btn-secondary">Edit</button></td>
+        <td><button class="btn btn-sm btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <form>
+    <label>NAME   </label>
+    <input  [(ngModel)]="stockDetail.name"><br><br>
+    <label>PRICE  </label>
+    <input [(ngModel)]="stockDetail.mfd"><br><br>
+    <label>MFD  </label>
+    <input type="date" [(ngModel)]="stockDetail.date"><br><br>
+    <button  class="btn btn-sm btn-success">save</button>
+    <button  class="btn btn-sm btn-warning">cancel</button>
+  </form>
+</div>
